@@ -8,7 +8,6 @@ public class Main {
         Authentification cadre = new Authentification();
         cadre.setVisible(true);
         MainController mc1 = new MainController();
-        mc1.populateComboFiliere();
         mc1.gererAuthentification(cadre);
     }
 }
