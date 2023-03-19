@@ -9,7 +9,7 @@ import static java.lang.System.exit;
 public class Connexion {
     static String url = "jdbc:mysql://localhost:3306/concours" ;
     static String user= "root";
-    static String password ="";
+    static String password ="root";
     public static Connection seConnecter() throws SQLException {
         Connection conn=null;
         try {

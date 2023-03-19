@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.sql.*;
 
 public class EtudiantRepository {
-    private PreparedStatement stmt = null;
+    private PreparedStatement pStmt = null;
+    private Statement stmt;
     private Connection connexion = null;
     private ResultSet result = null;
 
@@ -14,7 +15,7 @@ public class EtudiantRepository {
 
         try {
             connexion = Connexion.seConnecter();
-            stmt = (PreparedStatement) connexion.createStatement();
+            stmt = connexion.createStatement();
             result = stmt.executeQuery(requete);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -28,8 +29,8 @@ public class EtudiantRepository {
         String requete = "Select * from Candidat where idCand = ?)";
         try {
             connexion = Connexion.seConnecter();
-            stmt = (PreparedStatement) connexion.prepareStatement(requete);
-            stmt.setInt(1, id);
+            pStmt = (PreparedStatement) connexion.prepareStatement(requete);
+            pStmt.setInt(1, id);
             result = stmt.executeQuery(requete);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -44,7 +45,7 @@ public class EtudiantRepository {
                 "cp = ?, ville = ?, tel = ?, courriel = ? , loisirs = ?, idSpec = ?, idFil = ?, " +
                 "where idCand = ?";
 
-        //Récupération des champs du frmulaire
+        //Récupération des champs du formulaire
         String nom = "";
         String prenom = "";
         String datenaiss = "";
@@ -60,20 +61,20 @@ public class EtudiantRepository {
 
         try {
             connexion = Connexion.seConnecter();
-            stmt = (PreparedStatement) connexion.prepareStatement(requete);
-            stmt.setString(1, nom);
-            stmt.setString(2, prenom);
-            stmt.setString(3, datenaiss);
-            stmt.setString(4, lieunaiss);
-            stmt.setString(5, rue);
-            stmt.setString(6, cp);
-            stmt.setString(7, ville);
-            stmt.setString(7, ville);
-            stmt.setString(8, courriel);
-            stmt.setString(9, loisirs);
-            stmt.setInt(10, idSpec);
-            stmt.setInt(11, idFil);
-            stmt.setInt(11, id);
+            pStmt = (PreparedStatement) connexion.prepareStatement(requete);
+            pStmt.setString(1, nom);
+            pStmt.setString(2, prenom);
+            pStmt.setString(3, datenaiss);
+            pStmt.setString(4, lieunaiss);
+            pStmt.setString(5, rue);
+            pStmt.setString(6, cp);
+            pStmt.setString(7, ville);
+            pStmt.setString(7, ville);
+            pStmt.setString(8, courriel);
+            pStmt.setString(9, loisirs);
+            pStmt.setInt(10, idSpec);
+            pStmt.setInt(11, idFil);
+            pStmt.setInt(11, id);
 
             stmt.executeUpdate(requete);
             JOptionPane.showMessageDialog(null, "Mise à jour effectuée effectuée");
@@ -103,20 +104,20 @@ public class EtudiantRepository {
                 "','" + tel + "','" + courriel + "','" + loisirs + "','" + loisirs + "'," + idSpec + "," + idFil + ");";
         try {
             connexion = Connexion.seConnecter();
-            stmt = (PreparedStatement) connexion.createStatement();
-            stmt.setString(1, nom);
-            stmt.setString(2, prenoms);
-            stmt.setString(3, datenaiss);
-            stmt.setString(4, lieunaiss);
-            stmt.setString(5, rue);
-            stmt.setString(6, cp);
-            stmt.setString(7, ville);
-            stmt.setString(7, ville);
-            stmt.setString(8, courriel);
-            stmt.setString(9, loisirs);
-            stmt.setInt(10, idSpec);
-            stmt.setInt(11, idFil);
-            stmt.executeUpdate(req);
+            pStmt = (PreparedStatement) connexion.prepareStatement(req);
+            pStmt.setString(1, nom);
+            pStmt.setString(2, prenoms);
+            pStmt.setString(3, datenaiss);
+            pStmt.setString(4, lieunaiss);
+            pStmt.setString(5, rue);
+            pStmt.setString(6, cp);
+            pStmt.setString(7, ville);
+            pStmt.setString(7, ville);
+            pStmt.setString(8, courriel);
+            pStmt.setString(9, loisirs);
+            pStmt.setInt(10, idSpec);
+            pStmt.setInt(11, idFil);
+            pStmt.executeUpdate(req);
             JOptionPane.showMessageDialog(null, "Insertion effectuée");
 
         } catch (SQLException e) {
@@ -130,8 +131,8 @@ public class EtudiantRepository {
         String requete = "Delete from Candidat Where idCand = ?";
         try {
             connexion = Connexion.seConnecter();
-            stmt = (PreparedStatement) connexion.createStatement();
-            stmt.executeUpdate(requete);
+            pStmt = (PreparedStatement) connexion.prepareStatement(requete);
+            pStmt.executeUpdate(requete);
             JOptionPane.showMessageDialog(null, "Suppression effectuée");
 
         } catch (SQLException e) {
