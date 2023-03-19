@@ -239,7 +239,14 @@
                 <preferred-size width="175" height="25"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <model>
+                <item value="Débutant"/>
+                <item value="Intermédiaire"/>
+                <item value="Avancé"/>
+                <item value="Expert"/>
+              </model>
+            </properties>
           </component>
           <component id="35e9c" class="javax.swing.JComboBox" binding="comboBac">
             <constraints>

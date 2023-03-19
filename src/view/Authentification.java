@@ -21,7 +21,6 @@ public class Authentification extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-
     }
 
     public JButton getBtnValider() {

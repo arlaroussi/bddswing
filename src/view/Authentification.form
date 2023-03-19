@@ -84,7 +84,9 @@
                 <maximum-size width="-1" height="30"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <font name="Arial" size="14" style="1"/>
+            </properties>
           </component>
           <component id="84c34" class="javax.swing.JLabel">
             <constraints>
@@ -101,7 +103,9 @@
                 <maximum-size width="-1" height="30"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <font name="Arial" size="14" style="1"/>
+            </properties>
           </component>
           <hspacer id="b2a08">
             <constraints>

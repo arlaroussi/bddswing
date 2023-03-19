@@ -9,7 +9,7 @@ public class EtudiantRepository {
     private Connection connexion = null;
     private ResultSet result = null;
 
-    public ResultSet getAllEtudiants(Connexion con) throws SQLException {
+    public ResultSet getAllEtudiants() throws SQLException {
 
         String requete = "Select * from Candidat";
 
@@ -24,7 +24,7 @@ public class EtudiantRepository {
         return result;
     }
 
-    public ResultSet getCandidatById(Connexion cnx, int id) throws SQLException {
+    public ResultSet getCandidatById(int id) throws SQLException {
 
         String requete = "Select * from Candidat where idCand = ?)";
         try {
